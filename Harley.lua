@@ -5752,7 +5752,7 @@ local Users = database:scard(bot_id..'Tshake:UsersBot')
 send(msg.chat_id_, msg.id_,'🔘┇احصائيات البوت \n\n👥┇عدد المجموعات *~ '..Groups..'\n👤┇عدد المشتركين ~ '..Users..'*')
 end
 if text =='السيرفر' and DevBot(msg) then
-    if not msg.SudoUser then return "For Sudo Only." end
+elseif not msg.SudoUser then return "For Sudo Only." end
     return io.popen([[
     
     linux_version=`lsb_release -ds`
