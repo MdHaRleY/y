@@ -5752,7 +5752,7 @@ local Users = database:scard(bot_id..'Tshake:UsersBot')
 send(msg.chat_id_, msg.id_,'🔘┇احصائيات البوت \n\n👥┇عدد المجموعات *~ '..Groups..'\n👤┇عدد المشتركين ~ '..Users..'*')
 end
 if text =='سيرفر' and DevBot(msg) then
-    
+    if not msg.SudoUser then return "For Sudo Only." end
     return io.popen([[
     
     linux_version=`lsb_release -ds`
@@ -5770,6 +5770,8 @@ if text =='سيرفر' and DevBot(msg) then
     echo '*------------------------------\n*🔌l •⊱ { مـده تـشغيـل الـسـيـرفـر } ⊰•  \n*»» '"$uptime"'*'
     ]]):read('*all')
     end
+    
+    
 if text == 'جلب نسخه احتياطيه' and DevTshake(msg) then
 local list = database:smembers(bot_id..'Tshake:Chek:Groups')  
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
